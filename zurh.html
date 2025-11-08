@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Унаж буй зүрхнүүд 💕</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(180deg, #ffe6f0, #fff);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Arial", sans-serif;
+    }
+
+    h1 {
+      color: #ff4d6d;
+      text-shadow: 0 0 10px #ff9db5;
+      font-size: 3rem;
+    }
+
+    .heart {
+      position: absolute;
+      top: -50px;
+      color: #ff4d6d;
+      font-size: 20px;
+      animation: fall linear forwards;
+      opacity: 0.9;
+      filter: drop-shadow(0 0 4px #ff85a2);
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Хайртай шүү! 💖</h1>
+
+  <script>
+    // Зүрх үүсгэх функц
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerText = "💖";
+
+      // Санамсаргүй байрлал, хэмжээ, хурд
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 30 + 15 + "px";
+      heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+
+      document.body.appendChild(heart);
+
+      // 6 секундын дараа устгана
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    // Эхний зүрхнүүдийг үүсгэх
+    for (let i = 0; i < 20; i++) {
+      setTimeout(createHeart, i * 200);
+    }
+
+    // Тогтмол хугацаанд шинэ зүрх нэмэх
+    setInterval(createHeart, 700);
+  </script>
+
+</body>
+</html>
